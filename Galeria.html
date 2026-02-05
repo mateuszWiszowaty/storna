@@ -21,13 +21,24 @@
     header {
       background-color: #222;
       color: white;
-      padding: 20px 0;
+      padding: 15px 0;
       text-align: center;
       position: fixed;
       top: 0;
       width: 100%;
       z-index: 1000;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+    
+    header h1 {
+      font-size: 1.8rem;
+      margin-bottom: 5px;
+      color: white;
+    }
+    
+    header p {
+      font-size: 1rem;
+      opacity: 0.9;
     }
     
     nav {
@@ -42,46 +53,51 @@
     
     nav a {
       color: white;
-      margin: 0 15px;
+      margin: 0 10px;
       text-decoration: none;
-      font-size: 16px;
+      font-size: 15px;
+      padding: 5px 10px;
+      border-radius: 4px;
+      transition: background-color 0.3s;
     }
     
     nav a:hover {
       color: #007f5f;
+      background-color: rgba(255, 255, 255, 0.1);
     }
     
     .container {
       max-width: 1400px;
       margin: 100px auto 40px;
-      padding: 0 20px;
+      padding: 0 15px;
     }
     
     h1 { 
       color: #005f73; 
       text-align: center;
-      margin-bottom: 40px;
-      font-size: 2.5rem;
+      margin-bottom: 25px;
+      font-size: 2rem;
     }
     
-    /* Kategorie */
+    /* Kategorie - bardziej responsywne */
     .categories {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 40px;
+      gap: 8px;
+      margin-bottom: 30px;
     }
     
     .category-btn {
-      padding: 10px 20px;
+      padding: 8px 16px;
       background-color: #e9ecef;
       border: none;
-      border-radius: 30px;
+      border-radius: 20px;
       cursor: pointer;
-      font-size: 16px;
+      font-size: 14px;
       transition: all 0.3s ease;
       font-weight: 500;
+      white-space: nowrap;
     }
     
     .category-btn:hover {
@@ -96,7 +112,7 @@
     
     /* Sekcje kategorii */
     .category-section {
-      margin-bottom: 60px;
+      margin-bottom: 50px;
       display: block;
     }
     
@@ -107,33 +123,34 @@
     .category-title {
       color: #005f73;
       text-align: center;
-      margin-bottom: 30px;
-      font-size: 1.8rem;
-      padding-bottom: 10px;
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+      padding-bottom: 8px;
       border-bottom: 2px solid #005f73;
     }
     
-    /* Galeria */
+    /* Galeria - lepsza responsywność */
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 20px;
-      margin-bottom: 40px;
+      gap: 15px;
+      margin-bottom: 30px;
     }
     
     .gallery-item {
       position: relative;
       overflow: hidden;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease;
-      height: 220px;
+      height: 200px;
       cursor: pointer;
+      aspect-ratio: 4/3;
     }
     
     .gallery-item:hover {
       transform: translateY(-5px);
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
     }
     
     .gallery-item img {
@@ -152,21 +169,47 @@
       bottom: 0;
       left: 0;
       right: 0;
-      background: rgba(0, 95, 115, 0.8);
+      background: rgba(0, 95, 115, 0.85);
       color: white;
-      padding: 15px;
+      padding: 12px;
       transform: translateY(100%);
       transition: transform 0.3s ease;
+      font-size: 14px;
     }
     
     .gallery-item:hover .image-overlay {
       transform: translateY(0);
     }
     
+    .image-overlay h3 {
+      font-size: 16px;
+      margin-bottom: 5px;
+      color: white;
+    }
+    
+    .image-overlay p {
+      font-size: 12px;
+      opacity: 0.9;
+    }
+    
+    /* Specjalne style dla przed/po */
+    .before-after-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(255, 87, 34, 0.9);
+      color: white;
+      padding: 4px 10px;
+      border-radius: 15px;
+      font-size: 12px;
+      font-weight: bold;
+      z-index: 2;
+    }
+    
     .back-button {
       display: block;
       width: fit-content;
-      margin: 40px auto 0;
+      margin: 30px auto 0;
       padding: 12px 25px;
       background-color: #005f73;
       color: white;
@@ -185,13 +228,14 @@
     
     .description {
       text-align: center;
-      margin-bottom: 40px;
-      font-size: 18px;
+      margin-bottom: 30px;
+      font-size: 16px;
       color: #555;
-      line-height: 1.6;
+      line-height: 1.5;
       max-width: 800px;
       margin-left: auto;
       margin-right: auto;
+      padding: 0 10px;
     }
     
     /* LIGHTBOX STYLES */
@@ -202,7 +246,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.9);
+      background-color: rgba(0, 0, 0, 0.95);
       z-index: 2000;
       justify-content: center;
       align-items: center;
@@ -215,8 +259,9 @@
     
     .lightbox-content {
       position: relative;
-      max-width: 90%;
-      max-height: 90%;
+      width: 95%;
+      max-width: 1200px;
+      max-height: 95vh;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -224,7 +269,7 @@
     
     .lightbox-img {
       max-width: 100%;
-      max-height: 80vh;
+      max-height: 70vh;
       border-radius: 8px;
       box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
       animation: zoomIn 0.3s ease;
@@ -233,55 +278,25 @@
     .lightbox-caption {
       color: white;
       text-align: center;
-      margin-top: 20px;
-      font-size: 18px;
-      padding: 10px 20px;
-      background: rgba(0, 95, 115, 0.8);
+      margin-top: 15px;
+      font-size: 16px;
+      padding: 10px 15px;
+      background: rgba(0, 95, 115, 0.9);
       border-radius: 5px;
-      max-width: 800px;
+      max-width: 90%;
     }
     
     .lightbox-caption h3 {
       margin-bottom: 5px;
       color: white;
+      font-size: 18px;
     }
     
     .lightbox-nav {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      background: rgba(0, 95, 115, 0.8);
-      color: white;
-      border: none;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      font-size: 24px;
-      cursor: pointer;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      transition: background 0.3s;
-      z-index: 2001;
-    }
-    
-    .lightbox-nav:hover {
-      background: rgba(0, 71, 90, 0.9);
-    }
-    
-    .lightbox-prev {
-      left: 20px;
-    }
-    
-    .lightbox-next {
-      right: 20px;
-    }
-    
-    .lightbox-close {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      background: rgba(0, 95, 115, 0.8);
+      background: rgba(0, 95, 115, 0.9);
       color: white;
       border: none;
       width: 40px;
@@ -296,18 +311,49 @@
       z-index: 2001;
     }
     
+    .lightbox-nav:hover {
+      background: rgba(0, 71, 90, 1);
+    }
+    
+    .lightbox-prev {
+      left: 10px;
+    }
+    
+    .lightbox-next {
+      right: 10px;
+    }
+    
+    .lightbox-close {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: rgba(0, 95, 115, 0.9);
+      color: white;
+      border: none;
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      font-size: 18px;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: background 0.3s;
+      z-index: 2001;
+    }
+    
     .lightbox-close:hover {
       background: rgba(204, 0, 0, 0.9);
     }
     
     .lightbox-counter {
       position: absolute;
-      top: 20px;
-      left: 20px;
+      top: 15px;
+      left: 15px;
       color: white;
-      font-size: 18px;
-      background: rgba(0, 95, 115, 0.8);
-      padding: 8px 15px;
+      font-size: 16px;
+      background: rgba(0, 95, 115, 0.9);
+      padding: 6px 12px;
       border-radius: 20px;
       z-index: 2001;
     }
@@ -315,21 +361,24 @@
     .lightbox-thumbnails {
       display: flex;
       justify-content: center;
-      margin-top: 20px;
-      gap: 10px;
+      margin-top: 15px;
+      gap: 8px;
       flex-wrap: wrap;
-      max-width: 90%;
+      max-width: 95%;
+      overflow-x: auto;
+      padding: 5px 0;
     }
     
     .thumbnail {
-      width: 80px;
-      height: 60px;
-      border-radius: 5px;
+      width: 60px;
+      height: 45px;
+      border-radius: 4px;
       overflow: hidden;
       cursor: pointer;
       opacity: 0.6;
       transition: opacity 0.3s, transform 0.3s;
       border: 2px solid transparent;
+      flex-shrink: 0;
     }
     
     .thumbnail:hover {
@@ -358,67 +407,228 @@
       to { transform: scale(1); opacity: 1; }
     }
     
-    @media (max-width: 768px) {
-      .gallery {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      }
-      
-      h1 {
-        font-size: 2rem;
-      }
-      
-      .lightbox-nav {
-        width: 40px;
-        height: 40px;
-        font-size: 18px;
-      }
-      
-      .lightbox-prev {
-        left: 10px;
-      }
-      
-      .lightbox-next {
-        right: 10px;
-      }
-      
-      .thumbnail {
-        width: 60px;
-        height: 45px;
-      }
-      
-      .categories {
-        gap: 8px;
-      }
-      
-      .category-btn {
-        padding: 8px 16px;
-        font-size: 14px;
-      }
-    }
+    /* MEDIA QUERIES dla responsywności */
     
-    @media (max-width: 480px) {
-      .gallery {
-        grid-template-columns: 1fr;
+    /* Tablety */
+    @media (max-width: 992px) {
+      .container {
+        margin: 90px auto 30px;
+      }
+      
+      nav {
+        top: 70px;
+        padding: 8px;
       }
       
       nav a {
         margin: 0 8px;
         font-size: 14px;
+        padding: 4px 8px;
+      }
+      
+      h1 {
+        font-size: 1.8rem;
+      }
+      
+      .gallery {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 12px;
+      }
+      
+      .gallery-item {
+        height: 180px;
+      }
+      
+      .lightbox-img {
+        max-height: 60vh;
+      }
+    }
+    
+    /* Telefony (poziome) */
+    @media (max-width: 768px) {
+      body {
+        padding-top: 50px;
+      }
+      
+      header {
+        padding: 12px 0;
+      }
+      
+      header h1 {
+        font-size: 1.5rem;
+      }
+      
+      header p {
+        font-size: 0.9rem;
+      }
+      
+      nav {
+        top: 60px;
+        padding: 6px;
+        overflow-x: auto;
+        white-space: nowrap;
+        justify-content: flex-start;
+        display: flex;
+      }
+      
+      nav a {
+        font-size: 13px;
+        margin: 0 6px;
+        padding: 4px 8px;
+      }
+      
+      .container {
+        margin: 80px auto 20px;
+        padding: 0 10px;
+      }
+      
+      h1 {
+        font-size: 1.6rem;
+        margin-bottom: 20px;
+      }
+      
+      .description {
+        font-size: 15px;
+        margin-bottom: 20px;
+      }
+      
+      .categories {
+        gap: 6px;
+        margin-bottom: 20px;
+      }
+      
+      .category-btn {
+        padding: 6px 12px;
+        font-size: 13px;
+      }
+      
+      .gallery {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 10px;
+      }
+      
+      .gallery-item {
+        height: 160px;
+      }
+      
+      .lightbox-nav {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+      }
+      
+      .lightbox-prev {
+        left: 5px;
+      }
+      
+      .lightbox-next {
+        right: 5px;
+      }
+      
+      .lightbox-close {
+        width: 30px;
+        height: 30px;
+        font-size: 16px;
+        top: 10px;
+        right: 10px;
+      }
+      
+      .lightbox-counter {
+        font-size: 14px;
+        padding: 5px 10px;
+        top: 10px;
+        left: 10px;
       }
       
       .lightbox-caption {
+        font-size: 14px;
+        padding: 8px 12px;
+      }
+      
+      .lightbox-caption h3 {
         font-size: 16px;
-        padding: 8px 15px;
       }
       
       .thumbnail {
         width: 50px;
         height: 40px;
       }
+    }
+    
+    /* Telefony (pionowe) */
+    @media (max-width: 576px) {
+      .gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+      }
+      
+      .gallery-item {
+        height: 150px;
+      }
+      
+      .category-title {
+        font-size: 1.3rem;
+      }
+      
+      .image-overlay {
+        padding: 8px;
+        font-size: 12px;
+      }
+      
+      .image-overlay h3 {
+        font-size: 14px;
+      }
+      
+      .before-after-badge {
+        font-size: 10px;
+        padding: 3px 8px;
+      }
+      
+      .back-button {
+        padding: 10px 20px;
+        font-size: 15px;
+      }
+      
+      .lightbox-thumbnails {
+        gap: 5px;
+      }
+      
+      .thumbnail {
+        width: 45px;
+        height: 35px;
+      }
+    }
+    
+    /* Bardzo małe telefony */
+    @media (max-width: 400px) {
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+      
+      .gallery-item {
+        height: 200px;
+      }
+      
+      nav a {
+        font-size: 12px;
+        margin: 0 4px;
+        padding: 3px 6px;
+      }
+      
+      .categories {
+        flex-direction: column;
+        align-items: center;
+      }
       
       .category-btn {
-        padding: 6px 12px;
-        font-size: 12px;
+        width: 90%;
+        max-width: 250px;
+        margin-bottom: 5px;
+      }
+      
+      .thumbnail {
+        width: 40px;
+        height: 30px;
       }
     }
   </style>
@@ -445,18 +655,18 @@
       <p>Poniżej prezentujemy nasze realizacje podzielone na kategorie. Kliknij na kategorię, aby zobaczyć zdjęcia, a następnie na dowolne zdjęcie, aby otworzyć galerię w pełnym rozmiarze.</p>
     </div>
     
-    <!-- Przyciski kategorii -->
+    <!-- Przyciski kategorii - ZMIANA: Pokoje dziecięce → Realizacje przed i po -->
     <div class="categories">
-      <button class="category-btn active" data-category="all">Realizacje</button>
+      <button class="category-btn active" data-category="all">Wszystkie realizacje</button>
       <button class="category-btn" data-category="lazienki">Łazienki</button>
       <button class="category-btn" data-category="kuchnie">Kuchnie</button>
       <button class="category-btn" data-category="salony">Salony</button>
-      <button class="category-btn" data-category="pokojedzieciece">Pokoje dziecięce</button>
+      <button class="category-btn" data-category="przedpo">Przed i po</button>
     </div>
     
     <!-- Sekcja wszystkich zdjęć -->
     <div id="category-all" class="category-section">
-      <h2 class="category-title">Realizacje</h2>
+      <h2 class="category-title">Wszystkie realizacje</h2>
       <div class="gallery">
         <!-- Wszystkie zdjęcia będą tu dodane przez JavaScript -->
       </div>
@@ -466,7 +676,7 @@
     <div id="category-lazienki" class="category-section hidden">
       <h2 class="category-title">Łazienki</h2>
       <div class="gallery">
-        <!-- 10 zdjęć łazienek -->
+        <!-- 8 zdjęć łazienek (zmniejszona ilość dla lepszej wydajności) -->
         <div class="gallery-item" data-category="lazienki" data-index="0">
           <img src="zdjecia/lazienka1.jpg" alt="Nowoczesna łazienka" data-title="Nowoczesna łazienka" data-desc="Kompleksowy remont łazienki z montażem nowych płytek, armatury i oświetlenia LED">
         </div>
@@ -498,14 +708,6 @@
         <div class="gallery-item" data-category="lazienki" data-index="7">
           <img src="zdjecia/lazienka8.jpg" alt="Łazienka rustykalna" data-title="Łazienka rustykalna" data-desc="Drewniane elementy, kamienne płytki i tradycyjne oświetlenie">
         </div>
-        
-        <div class="gallery-item" data-category="lazienki" data-index="8">
-          <img src="zdjecia/lazienka9.jpg" alt="Łazienka minimalistyczna" data-title="Minimalistyczna łazienka" data-desc="Proste formy, ukryte systemy przechowywania i monochromatyczna kolorystyka">
-        </div>
-        
-        <div class="gallery-item" data-category="lazienki" data-index="9">
-          <img src="zdjecia/lazienka10.jpg" alt="Łazienka z sauną" data-title="Łazienka z mini-sauną" data-desc="Kompleksowa łazienka z wbudowaną mini-sauną fińską">
-        </div>
       </div>
     </div>
     
@@ -513,45 +715,37 @@
     <div id="category-kuchnie" class="category-section hidden">
       <h2 class="category-title">Kuchnie</h2>
       <div class="gallery">
-        <!-- 10 zdjęć kuchni -->
-        <div class="gallery-item" data-category="kuchnie" data-index="10">
+        <!-- 8 zdjęć kuchni -->
+        <div class="gallery-item" data-category="kuchnie" data-index="8">
           <img src="zdjecia/kuchnia1.jpg" alt="Kuchnia nowoczesna" data-title="Kuchnia w stylu nowoczesnym" data-desc="Montaż mebli kuchennych, blatu granitowego i nowoczesnych urządzeń AGD">
         </div>
         
-        <div class="gallery-item" data-category="kuchnie" data-index="11">
+        <div class="gallery-item" data-category="kuchnie" data-index="9">
           <img src="zdjecia/kuchnia2.jpg" alt="Kuchnia otwarta" data-title="Otwarta kuchnia salonowa" data-desc="Integracja kuchni z salonem, wyspa kuchenna i system przechowywania">
         </div>
         
-        <div class="gallery-item" data-category="kuchnie" data-index="12">
+        <div class="gallery-item" data-category="kuchnie" data-index="10">
           <img src="zdjecia/kuchnia3.jpg" alt="Kuchnia rustykalna" data-title="Kuchnia w stylu rustykalnym" data-desc="Drewniane meble kuchenne, ceglany detal i tradycyjne oświetlenie">
         </div>
         
-        <div class="gallery-item" data-category="kuchnie" data-index="13">
+        <div class="gallery-item" data-category="kuchnie" data-index="11">
           <img src="zdjecia/kuchnia4.jpg" alt="Kuchnia z wyspą" data-title="Kuchnia z funkcjonalną wyspą" data-desc="Wyspa kuchenna z blatem roboczym i miejscami do siedzenia">
         </div>
         
-        <div class="gallery-item" data-category="kuchnie" data-index="14">
+        <div class="gallery-item" data-category="kuchnie" data-index="12">
           <img src="zdjecia/kuchnia5.jpg" alt="Kuchnia minimalistyczna" data-title="Minimalistyczna kuchnia" data-desc="Ukryte szafki, płaskie fronty i zintegrowane urządzenia">
         </div>
         
-        <div class="gallery-item" data-category="kuchnie" data-index="15">
+        <div class="gallery-item" data-category="kuchnie" data-index="13">
           <img src="zdjecia/kuchnia6.jpg" alt="Kuchnia industrialna" data-title="Kuchnia w stylu industrialnym" data-desc="Metalowe elementy, betonowy blat i otwarte regały">
         </div>
         
-        <div class="gallery-item" data-category="kuchnie" data-index="16">
+        <div class="gallery-item" data-category="kuchnie" data-index="14">
           <img src="zdjecia/kuchnia7.jpg" alt="Kuchnia klasyczna" data-title="Klasyczna kuchnia drewniana" data-desc="Dębowe meble, dekoracyjne fronty i marmurowy blat">
         </div>
         
-        <div class="gallery-item" data-category="kuchnie" data-index="17">
+        <div class="gallery-item" data-category="kuchnie" data-index="15">
           <img src="zdjecia/kuchnia8.jpg" alt="Mała kuchnia" data-title="Funkcjonalna mała kuchnia" data-desc="Optymalne wykorzystanie małej przestrzeni z systemem rozsuwanych drzwi">
-        </div>
-        
-        <div class="gallery-item" data-category="kuchnie" data-index="18">
-          <img src="zdjecia/kuchnia9.jpg" alt="Kuchnia retro" data-title="Kuchnia w stylu retro" data-desc="Pastelowe kolory, zaokrąglone kształty i vintage'owe akcesoria">
-        </div>
-        
-        <div class="gallery-item" data-category="kuchnie" data-index="19">
-          <img src="zdjecia/kuchnia10.jpg" alt="Kuchnia profesjonalna" data-title="Profesjonalna kuchnia" data-desc="Wydajna wentylacja, profesjonalny sprzęt AGD i oświetlenie robocze">
         </div>
       </div>
     </div>
@@ -560,92 +754,84 @@
     <div id="category-salony" class="category-section hidden">
       <h2 class="category-title">Salony</h2>
       <div class="gallery">
-        <!-- 10 zdjęć salonów -->
-        <div class="gallery-item" data-category="salony" data-index="20">
+        <!-- 8 zdjęć salonów -->
+        <div class="gallery-item" data-category="salony" data-index="16">
           <img src="zdjecia/salon1.jpg" alt="Salon nowoczesny" data-title="Nowoczesny salon" data-desc="Kompleksowy remont salonu: malowanie, montaż paneli podłogowych i systemu oświetlenia">
         </div>
         
-        <div class="gallery-item" data-category="salony" data-index="21">
+        <div class="gallery-item" data-category="salony" data-index="17">
           <img src="zdjecia/salon2.jpg" alt="Salon klasyczny" data-title="Salon w stylu klasycznym" data-desc="Drewniana zabudowa, kominek i tradycyjne detale architektoniczne">
         </div>
         
-        <div class="gallery-item" data-category="salony" data-index="22">
+        <div class="gallery-item" data-category="salony" data-index="18">
           <img src="zdjecia/salon3.jpg" alt="Salon minimalistyczny" data-title="Minimalistyczny salon" data-desc="Proste formy, neutralne kolory i ukryte systemy przechowywania">
         </div>
         
-        <div class="gallery-item" data-category="salony" data-index="23">
+        <div class="gallery-item" data-category="salony" data-index="19">
           <img src="zdjecia/salon4.jpg" alt="Salon loftowy" data-title="Salon w stylu loftowym" data-desc="Ceglane ściany, surowe betonowe elementy i industrialne oświetlenie">
         </div>
         
-        <div class="gallery-item" data-category="salony" data-index="24">
+        <div class="gallery-item" data-category="salony" data-index="20">
           <img src="zdjecia/salon5.jpg" alt="Salon skandynawski" data-title="Salon w stylu skandynawskim" data-desc="Jasne drewno, białe ściany i funkcjonalne meble">
         </div>
         
-        <div class="gallery-item" data-category="salony" data-index="25">
+        <div class="gallery-item" data-category="salony" data-index="21">
           <img src="zdjecia/salon6.jpg" alt="Salon rustykalny" data-title="Salon rustykalny" data-desc="Drewniane belki, kamienny kominek i naturalne materiały">
         </div>
         
-        <div class="gallery-item" data-category="salony" data-index="26">
+        <div class="gallery-item" data-category="salony" data-index="22">
           <img src="zdjecia/salon7.jpg" alt="Salon z kominkiem" data-title="Salon z nowoczesnym kominkiem" data-desc="Montaż kominka elektrycznego z efektem 3D ognia">
         </div>
         
-        <div class="gallery-item" data-category="salony" data-index="27">
+        <div class="gallery-item" data-category="salony" data-index="23">
           <img src="zdjecia/salon8.jpg" alt="Salon z biblioteką" data-title="Salon z wbudowaną biblioteką" data-desc="Zabudowa ścienna z regałami na książki i systemem oświetlenia">
-        </div>
-        
-        <div class="gallery-item" data-category="salony" data-index="28">
-          <img src="zdjecia/salon9.jpg" alt="Salon z TV" data-title="Salon z zabudową TV" data-desc="Elegancka zabudowa telewizyjna z systemem przechowywania nośników">
-        </div>
-        
-        <div class="gallery-item" data-category="salony" data-index="29">
-          <img src="zdjecia/salon10.jpg" alt="Salon panoramicny" data-title="Salon z panoramicznym oknem" data-desc="Montaż dużych przeszkleń z dostępem do tarasu">
         </div>
       </div>
     </div>
     
-    <!-- Kategoria: Pokoje dziecięce -->
-    <div id="category-pokojedzieciece" class="category-section hidden">
-      <h2 class="category-title">Pokoje dziecięce</h2>
+    <!-- Kategoria: Realizacje przed i po (ZMIANA) -->
+    <div id="category-przedpo" class="category-section hidden">
+      <h2 class="category-title">Realizacje Przed i Po</h2>
       <div class="gallery">
-        <!-- 10 zdjęć pokoi dziecięcych -->
-        <div class="gallery-item" data-category="pokojedzieciece" data-index="30">
-          <img src="zdjecia/pokoj1.jpg" alt="Pokój dziecięcy" data-title="Pokój dla chłopca" data-desc="Remont pokoju z motywem morskim, zabudową meblową i miejscem do zabawy">
+        <!-- 8 zdjęć przed/po -->
+        <div class="gallery-item" data-category="przedpo" data-index="24">
+          <div class="before-after-badge">Przed i Po</div>
+          <img src="zdjecia/przedpo1.jpg" alt="Remont kuchni przed i po" data-title="Kompletny remont kuchni" data-desc="Przebudowa starej kuchni z lat 80-tych na nowoczesną przestrzeń z wyspą kuchenną">
         </div>
         
-        <div class="gallery-item" data-category="pokojedzieciece" data-index="31">
-          <img src="zdjecia/pokoj2.jpg" alt="Pokój młodzieżowy" data-title="Pokój młodzieżowy" data-desc="Nowoczesny pokój z biurkiem, systemem przechowywania i oświetleniem punktowym">
+        <div class="gallery-item" data-category="przedpo" data-index="25">
+          <div class="before-after-badge">Przed i Po</div>
+          <img src="zdjecia/przedpo2.jpg" alt="Łazienka przed i po remoncie" data-title="Całkowita metamorfoza łazienki" data-desc="Rozbiórka starej instalacji i stworzenie nowoczesnej łazienki z podświetlanym lustrem">
         </div>
         
-        <div class="gallery-item" data-category="pokojedzieciece" data-index="32">
-          <img src="zdjecia/pokoj3.jpg" alt="Pokój dla dziewczynki" data-title="Pokój dla dziewczynki" data-desc="Biało-różowy pokój z baldachimem, domkiem dla lalek i systemem przechowywania">
+        <div class="gallery-item" data-category="przedpo" data-index="26">
+          <div class="before-after-badge">Przed i Po</div>
+          <img src="zdjecia/przedpo3.jpg" alt="Salon przed modernizacją" data-title="Salon z kompleksową modernizacją" data-desc="Wymiana podłogi, malowanie, nowe oświetlenie i meble na wymiar">
         </div>
         
-        <div class="gallery-item" data-category="pokojedzieciece" data-index="33">
-          <img src="zdjecia/pokoj4.jpg" alt="Pokój dla bliźniaków" data-title="Pokój dla bliźniaków" data-desc="Funkcjonalny pokój z dwoma łóżkami piętrowymi i oddzielnymi strefami">
+        <div class="gallery-item" data-category="przedpo" data-index="27">
+          <div class="before-after-badge">Przed i Po</div>
+          <img src="zdjecia/przedpo4.jpg" alt="Przebudowa przedpokoju" data-title="Przebudowa ciemnego przedpokoju" data-desc="Dodanie lustrzanych ścian, nowego oświetlenia i funkcjonalnych szafek">
         </div>
         
-        <div class="gallery-item" data-category="pokojedzieciece" data-index="34">
-          <img src="zdjecia/pokoj5.jpg" alt="Pokój z łóżkiem piętrowym" data-title="Pokój z łóżkiem piętrowym" data-desc="Łóżko piętrowe z biurkiem pod spodem i systemem półek">
+        <div class="gallery-item" data-category="przedpo" data-index="28">
+          <div class="before-after-badge">Przed i Po</div>
+          <img src="zdjecia/przedpo5.jpg" alt="Metamorfoza balkonu" data-title="Zabudowa i modernizacja balkonu" data-desc="Przekształcenie nieużywanego balkonu w funkcjonalną przestrzeń relaksu">
         </div>
         
-        <div class="gallery-item" data-category="pokojedzieciece" data-index="35">
-          <img src="zdjecia/pokoj6.jpg" alt="Pokój z zabudową" data-title="Pokój z pełną zabudową meblową" data-desc="Meble na wymiar, ukryte systemy przechowywania i strefa nauki">
+        <div class="gallery-item" data-category="przedpo" data-index="29">
+          <div class="before-after-badge">Przed i Po</div>
+          <img src="zdjecia/przedpo6.jpg" alt="Remont mieszkania w bloku" data-title="Remont mieszkania w bloku z wielkiej płyty" data-desc="Wymiana wszystkich instalacji, ocieplenie ścian i nowa aranżacja wnętrz">
         </div>
         
-        <div class="gallery-item" data-category="pokojedzieciece" data-index="36">
-          <img src="zdjecia/pokoj7.jpg" alt="Pokój tematyczny" data-title="Pokój w stylu kosmicznym" data-desc="Tematyczny pokój z planetami, rakietą i niebieskim oświetleniem">
+        <div class="gallery-item" data-category="przedpo" data-index="30">
+          <div class="before-after-badge">Przed i Po</div>
+          <img src="zdjecia/przedpo7.jpg" alt="Adaptacja poddasza" data-title="Adaptacja nieużywanego poddasza" data-desc="Ocieplenie, montaż okien dachowych i stworzenie dodatkowego pokoju">
         </div>
         
-        <div class="gallery-item" data-category="pokojedzieciece" data-index="37">
-          <img src="zdjecia/pokoj8.jpg" alt="Pokój z kącikiem zabaw" data-title="Pokój z wydzieloną strefą zabaw" data-desc="Dywany, miękkie wykładziny i bezpieczne meble dla małych dzieci">
-        </div>
-        
-        <div class="gallery-item" data-category="pokojedzieciece" data-index="38">
-          <img src="zdjecia/pokoj9.jpg" alt="Pokój dla nastolatka" data-title="Pokój dla nastolatka" data-desc="Nowoczesny design, miejsce na hobby i technologię">
-        </div>
-        
-        <div class="gallery-item" data-category="pokojedzieciece" data-index="39">
-          <img src="zdjecia/pokoj10.jpg" alt="Pokój uniwersalny" data-title="Uniwersalny pokój dziecięcy" data-desc="Neutralna kolorystyka, modułowe meble i możliwość łatwych zmian">
+        <div class="gallery-item" data-category="przedpo" data-index="31">
+          <div class="before-after-badge">Przed i Po</div>
+          <img src="zdjecia/przedpo8.jpg" alt="Modernizacja całego domu" data-title="Kompleksowa modernizacja domu jednorodzinnego" data-desc="Remont elewacji, wymiana okien, modernizacja wnętrz i ogrodu">
         </div>
       </div>
     </div>
@@ -656,7 +842,7 @@
   <!-- Lightbox (modal) -->
   <div class="lightbox" id="lightbox">
     <div class="lightbox-content">
-      <div class="lightbox-counter" id="lightbox-counter">1 / 40</div>
+      <div class="lightbox-counter" id="lightbox-counter">1 / 32</div>
       <button class="lightbox-close" id="lightbox-close">&times;</button>
       <button class="lightbox-nav lightbox-prev" id="lightbox-prev">&#10094;</button>
       <img class="lightbox-img" id="lightbox-img" src="" alt="">
@@ -719,11 +905,11 @@
         // Posortuj zdjęcia według indeksu
         images.sort((a, b) => a.index - b.index);
         
-        // Wypełnij sekcję "Realizacje" wszystkimi zdjęciami
+        // Wypełnij sekcję "Wszystkie realizacje" wszystkimi zdjęciami
         populateAllCategory();
       }
       
-      // Wypełnij sekcję "Realizacje"
+      // Wypełnij sekcję "Wszystkie realizacje"
       function populateAllCategory() {
         const allGallery = document.querySelector('#category-all .gallery');
         allGallery.innerHTML = '';
@@ -733,13 +919,18 @@
           galleryItem.className = 'gallery-item';
           galleryItem.setAttribute('data-category', image.category);
           galleryItem.setAttribute('data-index', index);
+          
+          // Dodaj badge dla zdjęć przed/po
+          const badge = image.category === 'przedpo' ? '<div class="before-after-badge">Przed i Po</div>' : '';
+          
           galleryItem.innerHTML = `
+            ${badge}
             <img src="${image.src}" alt="${image.alt}" 
                  data-title="${image.title}" 
                  data-desc="${image.desc}">
             <div class="image-overlay">
               <h3>${image.title}</h3>
-              <p>${image.category}</p>
+              <p>${image.category === 'przedpo' ? 'Przed i po' : image.category}</p>
             </div>
           `;
           
@@ -916,6 +1107,28 @@
       
       // Inicjalizuj galerię
       initGallery();
+      
+      // Responsywność - dostosuj liczbę kolumn w zależności od szerokości ekranu
+      function adjustGalleryColumns() {
+        const galleryItems = document.querySelectorAll('.gallery');
+        const width = window.innerWidth;
+        
+        galleryItems.forEach(gallery => {
+          if (width < 400) {
+            gallery.style.gridTemplateColumns = '1fr';
+          } else if (width < 576) {
+            gallery.style.gridTemplateColumns = 'repeat(2, 1fr)';
+          } else if (width < 768) {
+            gallery.style.gridTemplateColumns = 'repeat(auto-fill, minmax(200px, 1fr))';
+          } else {
+            gallery.style.gridTemplateColumns = 'repeat(auto-fill, minmax(250px, 1fr))';
+          }
+        });
+      }
+      
+      // Wywołaj na starcie i przy zmianie rozmiaru okna
+      adjustGalleryColumns();
+      window.addEventListener('resize', adjustGalleryColumns);
     });
   </script>
 </body>

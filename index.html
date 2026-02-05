@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Usługi Remontowe - GoldFinger</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      background-image: url('tło.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+
+    header {
+      background-color: rgba(34, 34, 34, 0.9);
+      color: rgb(255, 156, 7);
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    nav {
+      background-color: rgba(68, 68, 68, 0.9);
+      padding: 10px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav a {
+      color: rgb(255, 255, 255);
+      margin: 0 15px;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    nav a:hover {
+      color: #007f5f;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+      width: 100%;
+      min-height: 70vh;
+    }
+
+    .content-box {
+      background-color: rgba(255, 255, 255, 0.85);
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      max-width: 600px;
+    }
+
+    h2 {
+      color: #005f73;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 25px;
+    }
+
+    footer {
+      background-color: rgba(34, 34, 34, 0.9);
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: auto;
+    }
+
+    a.button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 25px;
+      background: #005f73;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+      position: relative;
+    }
+
+    a.button:hover {
+      background-color: #00475a;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>GoldFinger</h1>
+    <p>Profesjonalne Usługi Remontowe</p>
+  </header>
+  
+  <nav>
+    <a href="oferta.html">Oferta</a>
+    <a href="onas.html">O nas</a>
+    <a href="dlaczego.html">Dlaczego my?</a>
+    <a href="galeria.html">Galeria</a>
+    <a href="kontakt.html">Kontakt</a>
+  </nav>
+
+  <main>
+    <div class="content-box">
+      <h2>Witamy na stronie GoldFinger</h2>
+      <p>Specjalizujemy się w kompleksowych remontach i wykończeniach wnętrz. Zapraszamy do zapoznania się z naszą ofertą oraz do kontaktu!</p>
+      <a class="button floating-btn" href="oferta.html">Zobacz ofertę</a>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 KrisBud – Wszystkie prawa zastrzeżone</p>
+  </footer>
+
+  <script>
+    // Skrypt dla płynnego opadania przycisku podczas przewijania
+    document.addEventListener('DOMContentLoaded', function() {
+      const button = document.querySelector('.floating-btn');
+      const main = document.querySelector('main');
+      let isScrolling = false;
+      let lastScrollTop = 0;
+      
+      window.addEventListener('scroll', function() {
+        if (!isScrolling) {
+          window.requestAnimationFrame(function() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const windowHeight = window.innerHeight;
+            const mainHeight = main.offsetHeight;
+            const mainTop = main.offsetTop;
+            
+            // Oblicz pozycję przycisku w zależności od scrolla
+            let buttonOffset = 0;
+            
+            // Jeśli scrollujemy w dół, przycisk opada
+            if (scrollTop > lastScrollTop) {
+              buttonOffset = Math.min(100, scrollTop - mainTop);
+            } 
+            // Jeśli scrollujemy w górę, przycisk wraca na miejsce
+            else {
+              buttonOffset = Math.max(0, buttonOffset - (lastScrollTop - scrollTop));
+            }
+            
+            // Zastosuj transformację
+            button.style.transform = `translateY(${buttonOffset}px)`;
+            
+            lastScrollTop = scrollTop;
+            isScrolling = false;
+          });
+          
+          isScrolling = true;
+        }
+      });
+      
+      // Reset pozycji przycisku po kliknięciu
+      button.addEventListener('click', function() {
+        setTimeout(() => {
+          button.style.transform = 'translateY(0)';
+        }, 300);
+      });
+    });
+  </script>
+</body>
+</html>
